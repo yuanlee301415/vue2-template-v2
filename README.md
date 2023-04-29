@@ -1,7 +1,8 @@
 # vue2-template-v2
-
+> Vue2模板第2版
 ## Project setup
 ```
+vue create `Manually select features`(预设文件：.vuerc)
 npm install
 ```
 
