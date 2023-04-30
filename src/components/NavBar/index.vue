@@ -91,9 +91,6 @@ export default {
 nav {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
   overflow: auto;
   border-right: 1px solid #999;
   background-color: #001529;
