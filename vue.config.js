@@ -19,4 +19,6 @@ console.log(
 
 module.exports = defineConfig({
   transpileDependencies: true,
+  // 关闭 ESLint 保存编码时的语法检查
+  lintOnSave: false,
 });
