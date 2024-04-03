@@ -21,4 +21,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   // 关闭 ESLint 保存编码时的语法检查
   lintOnSave: false,
+
+  configureWebpack: {
+    name: process.env["VUE_APP_NAME"],
+  },
 });
