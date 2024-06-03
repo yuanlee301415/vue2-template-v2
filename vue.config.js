@@ -1,6 +1,9 @@
 const { defineConfig } = require("@vue/cli-service");
+const { version } = require("./package.json");
 
-process.env.VUE_APP_SEMANTIC_VERSION = require("./package.json").version;
+process.env.VUE_APP_VERSION = [version, process.env.VUE_APP_BUILD_VERSION].join(
+  "."
+);
 process.env.VUE_APP_BUILD_DATE = new Date().toISOString();
 
 console.log(
@@ -9,7 +12,7 @@ console.log(
     {
       NODE_ENV: process.env.NODE_ENV,
       ENV: process.env.ENV,
-      VUE_APP_SEMANTIC_VERSION: process.env.VUE_APP_SEMANTIC_VERSION,
+      VUE_APP_VERSION: process.env.VUE_APP_VERSION,
       VUE_APP_BUILD_DATE: process.env.VUE_APP_BUILD_DATE,
     },
     null,

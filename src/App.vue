@@ -8,7 +8,7 @@
 export default {
   name: "App",
   mounted() {
-    window.__APP_VERSION__ = process.env.VUE_APP_SEMANTIC_VERSION;
+    window.__APP_VERSION__ = process.env.VUE_APP_VERSION;
     window.__APP_BUILD_DATE__ = process.env.VUE_APP_BUILD_DATE;
 
     const leftStyle =
