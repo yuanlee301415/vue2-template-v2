@@ -1,44 +1,44 @@
 <template>
-  <div id="main" class="main">
-    <div class="side">
-      <nav-bar></nav-bar>
+    <div id="main" class="main">
+        <div class="side">
+            <nav-bar></nav-bar>
+        </div>
+        <div class="content">
+            <transition name="fade-transform" mode="out-in">
+                <template>
+                    <router-view :key="key" />
+                </template>
+            </transition>
+        </div>
     </div>
-    <div class="content">
-      <transition name="fade-transform" mode="out-in">
-        <template>
-          <router-view :key="key" />
-        </template>
-      </transition>
-    </div>
-  </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
+import NavBar from '@/components/NavBar'
 export default {
-  name: "Layout",
-  components: {
-    NavBar,
-  },
-  computed: {
-    key() {
-      return this.$route.fullPath;
+    name: 'Layout',
+    components: {
+        NavBar
     },
-    title() {
-      console.log("$route:", this.$route);
-      return this.$route.meta.title;
-    },
-  },
-};
+    computed: {
+        key() {
+            return this.$route.fullPath
+        },
+        title() {
+            console.log('$route:', this.$route)
+            return this.$route.meta.title
+        }
+    }
+}
 </script>
 
 <style scoped>
 .side {
-  position: fixed;
-  width: 300px;
-  height: 100vh;
+    position: fixed;
+    width: 300px;
+    height: 100vh;
 }
 .content {
-  padding: 20px 20px 20px 320px;
+    padding: 20px 20px 20px 320px;
 }
 </style>
