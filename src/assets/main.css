@@ -1,0 +1,23 @@
+@import "base.css";
+
+.side nav .router-link-exact-active {
+    background-color: #1890ff;
+    color: #fff;
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.flx-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
