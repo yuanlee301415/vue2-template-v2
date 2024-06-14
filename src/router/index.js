@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/layout'
+import { HOME_URL, EXCEPTION_404_URL } from '@/config'
 
 Vue.use(Router)
 
 export const routes = [
     {
         // Home
-        path: '/',
+        path: HOME_URL,
         component: Layout,
-        redirect: '/',
+        redirect: HOME_URL,
         children: [
             {
                 path: '',
@@ -39,13 +40,13 @@ export const routes = [
     },
 
     {
-        path: '/404',
+        path: EXCEPTION_404_URL,
         component: () => import('@/views/exception/404.vue')
     },
 
     {
         path: '*',
-        redirect: '/404'
+        redirect: EXCEPTION_404_URL
     }
 ]
 
