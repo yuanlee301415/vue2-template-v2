@@ -23,6 +23,9 @@ module.exports = defineConfig({
     // 关闭 ESLint 保存编码时的语法检查
     lintOnSave: false,
 
+    // 关闭生产环境 source map
+    productionSourceMap: false,
+
     configureWebpack: {
         name: process.env['VUE_APP_NAME']
     }
