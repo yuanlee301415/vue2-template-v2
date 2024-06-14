@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 const TerserPlugin = require('terser-webpack-plugin')
+const webpack = require('webpack')
 const { version } = require('./package.json')
 
 process.env.VUE_APP_VERSION = [version, process.env.VUE_APP_BUILD_VERSION].join('.')
@@ -39,5 +40,10 @@ module.exports = defineConfig({
                 }
             })
         ]
+    },
+
+    chainWebpack: (config) => {
+        // 构建进度
+        config.plugin('progress').use(new webpack.ProgressPlugin())
     }
 })
