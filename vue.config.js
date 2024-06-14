@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+const TerserPlugin = require('terser-webpack-plugin')
 const { version } = require('./package.json')
 
 process.env.VUE_APP_VERSION = [version, process.env.VUE_APP_BUILD_VERSION].join('.')
@@ -27,6 +28,16 @@ module.exports = defineConfig({
     productionSourceMap: false,
 
     configureWebpack: {
-        name: process.env['VUE_APP_NAME']
+        name: process.env['VUE_APP_NAME'],
+        plugins: [
+            new TerserPlugin({
+                terserOptions: {
+                    compress: {
+                        drop_console: true, // 清除 console 语句
+                        drop_debugger: true // 清除 debugger 语句
+                    }
+                }
+            })
+        ]
     }
 })
