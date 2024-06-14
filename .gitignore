@@ -2,6 +2,7 @@
 /node_modules
 /dist
 /Todo
+/server/db.json5
 
 # local env files
 .env.local
