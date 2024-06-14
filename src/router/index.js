@@ -20,6 +20,22 @@ export const routes = [
                 component: () => import('@/views/home')
             }
         ]
+    },
+    {
+        // Test
+        path: '/test',
+        component: Layout,
+        redirect: '/test',
+        children: [
+            {
+                path: '',
+                name: 'Test',
+                meta: {
+                    title: 'Test'
+                },
+                component: () => import('@/views/test')
+            }
+        ]
     }
 ]
 
