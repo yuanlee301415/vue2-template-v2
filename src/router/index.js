@@ -36,6 +36,16 @@ export const routes = [
                 component: () => import('@/views/test')
             }
         ]
+    },
+
+    {
+        path: '/404',
+        component: () => import('@/views/exception/404.vue')
+    },
+
+    {
+        path: '*',
+        redirect: '/404'
     }
 ]
 

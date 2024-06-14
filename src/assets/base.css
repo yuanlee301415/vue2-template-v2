@@ -26,6 +26,7 @@
     --color-border-hover: var(--divider-light-1);
     --color-heading: var(--text-light-1);
     --color-text: var(--text-light-1);
+    --color-primary: #1890ff;
 }
 
 ::-webkit-scrollbar {
