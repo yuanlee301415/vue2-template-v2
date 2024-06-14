@@ -8,7 +8,6 @@ process.env.VUE_APP_VERSION = [version, process.env.VUE_APP_BUILD_VERSION].join(
 process.env.VUE_APP_BUILD_DATE = new Date().toISOString()
 
 console.log(
-    'env:\n',
     JSON.stringify(
         {
             NODE_ENV: process.env.NODE_ENV,
@@ -30,7 +29,6 @@ module.exports = defineConfig({
     productionSourceMap: false,
 
     configureWebpack: {
-        name: process.env['VUE_APP_NAME'],
         plugins: [
             new TerserPlugin({
                 terserOptions: {
