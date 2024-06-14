@@ -28,6 +28,22 @@ module.exports = defineConfig({
     // 关闭生产环境 source map
     productionSourceMap: false,
 
+    devServer: {
+        proxy: {
+            ...(process.env.VUE_APP_API_PROXY
+                ? {
+                      [process.env.VUE_APP_BASE_API]: {
+                          target: process.env.VUE_APP_API_PROXY,
+                          changeOrigin: true,
+                          pathRewrite: {
+                              ['^' + process.env.VUE_APP_BASE_API]: ''
+                          }
+                      }
+                  }
+                : void 0)
+        }
+    },
+
     configureWebpack: {
         plugins: [
             new TerserPlugin({
