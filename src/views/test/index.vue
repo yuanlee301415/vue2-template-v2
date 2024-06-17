@@ -6,7 +6,7 @@
 
 <script>
 import { getUsersApi } from '@/api/user'
-import { GenderEnum } from '@/enums/Gender'
+import { GenderEnum } from '@/constants'
 
 export default {
     name: 'Test',
@@ -17,8 +17,10 @@ export default {
 
         // Gender
         for (const item of GenderEnum) {
-            console.log(item)
+            console.log('Gender:', item)
         }
+        console.log('MALE:', GenderEnum.MALE)
+        console.log('MALE Label:', GenderEnum[GenderEnum.MALE])
     }
 }
 </script>
