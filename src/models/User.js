@@ -28,17 +28,24 @@ export class User {
     email
 
     /**
+     * 性别
+     * @type {GenderEnum}
+     */
+    gender
+
+    /**
      * 创建时间
      * @type {timestamp}
      */
     created_at
 
     constructor(_) {
-        const { id, name, role, email, created_at } = { ..._ }
+        const { id, name, role, email, gender, created_at } = { ..._ }
         this.id = id
         this.name = name
         this.role = role
         this.email = email
+        this.gender = gender
         this.created_at = created_at
     }
 

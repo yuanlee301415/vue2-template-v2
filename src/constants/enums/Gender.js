@@ -5,13 +5,17 @@
  *
  * 1 - 女
  *
- * @typedef {0 | 1} Gender
+ * @typedef {0 | 1} GenderEnum
  */
 
 const MALE = 0
 const FEMALE = 1
 
-export const GenderEnum = Object.freeze({
+/**
+ * 性别 Map
+ * @type {Record<GenderEnum|'MALE'|'FEMALE', GenderEnum|'男'|'女'>}
+ */
+export const Gender = Object.freeze({
     MALE,
     FEMALE,
     [MALE]: '男',

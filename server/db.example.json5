@@ -4,6 +4,7 @@
             "id": 0,
             "name": "Admin",
             "role": "admin",
+            gender: 0,
             "email": "admin@example.com",
             created_at: 949338000000
         },
@@ -11,6 +12,7 @@
             "id": 1,
             "name": "User",
             "role": "user",
+            gender: 1,
             "email": "user@example.com",
             created_at: 949338000000
         }

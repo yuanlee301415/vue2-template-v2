@@ -1,14 +1,28 @@
+<!--
+Test page
+-->
+
 <template>
     <div>
         <h2>Test</h2>
         <details open>
-            <summary>硬编码</summary>
-            <table width="100%" border="1" cellpadding="0" cellspacing="0">
+            <summary>硬编码 & 枚举</summary>
+            <form>
+                <label>
+                    <span>Gender:</span>
+                    <select v-model="formData.gender">
+                        <option v-for="[value, label] of CONSTANTS.Gender" :key="value" :value="value">{{ label }}</option>
+                    </select>
+                </label>
+                <pre>{{ formData }}</pre>
+            </form>
+            <table width="100%" border="1" cellpadding="5" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Role</th>
+                        <th>Gender</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +34,7 @@
                             <span v-else-if="user.role === CONSTANTS.USER_ROLE.USER">普通用户</span>
                             <span v-else>未知</span>
                         </td>
+                        <td>{{ CONSTANTS.Gender[user.gender] }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -29,12 +44,13 @@
 
 <script>
 import { getUsersApi } from '@/api/user'
-import { GenderEnum } from '@/constants'
+import { Gender } from '@/constants'
 import { USER_ROLE } from '@/constants'
 import { User } from '@/models/User'
 
 const CONSTANTS = Object.freeze({
-    USER_ROLE
+    USER_ROLE,
+    Gender
 })
 
 export default {
@@ -42,7 +58,10 @@ export default {
     data() {
         return {
             CONSTANTS,
-            users: null
+            users: null,
+            formData: {
+                gender: Gender.MALE
+            }
         }
     },
     created() {
@@ -50,13 +69,6 @@ export default {
             this.users = User.from(res)
             console.log('users:', this.users)
         })
-
-        // Gender
-        for (const item of GenderEnum) {
-            console.log('Gender:', item)
-        }
-        console.log('MALE:', GenderEnum.MALE)
-        console.log('MALE Label:', GenderEnum[GenderEnum.MALE])
     }
 }
 </script>
