@@ -39,10 +39,20 @@ Test page
                 </tbody>
             </table>
         </details>
+
+        <details open>
+            <summary>App store</summary>
+            <select v-model="appTheme" @change="handleToggleTheme">
+                <option value="normal">Normal</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </details>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { getUsersApi } from '@/api/user'
 import { Gender } from '@/constants'
 import { USER_ROLE } from '@/constants'
@@ -61,7 +71,16 @@ export default {
             users: null,
             formData: {
                 gender: Gender.MALE
-            }
+            },
+            appTheme: this.theme
+        }
+    },
+    computed: {
+        ...mapGetters(['theme'])
+    },
+    methods: {
+        handleToggleTheme() {
+            this.$store.dispatch('app/setTheme', this.appTheme)
         }
     },
     created() {
