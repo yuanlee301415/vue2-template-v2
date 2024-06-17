@@ -3,6 +3,7 @@
 /dist
 /Todo
 /server/db.json5
+/reports
 
 # local env files
 .env.local
