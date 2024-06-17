@@ -1,3 +1,7 @@
+<!--
+首页
+-->
+
 <template>
     <div>Home</div>
 </template>

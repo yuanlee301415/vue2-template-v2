@@ -1,3 +1,7 @@
+<!--
+主体布局
+-->
+
 <template>
     <div id="main" class="main">
         <div class="side">
@@ -23,22 +27,11 @@ export default {
     computed: {
         key() {
             return this.$route.fullPath
-        },
-        title() {
-            console.log('$route:', this.$route)
-            return this.$route.meta.title
         }
     }
 }
 </script>
 
-<style scoped>
-.side {
-    position: fixed;
-    width: 300px;
-    height: 100vh;
-}
-.content {
-    padding: 20px 20px 20px 320px;
-}
+<style scoped lang="less">
+@import 'style';
 </style>

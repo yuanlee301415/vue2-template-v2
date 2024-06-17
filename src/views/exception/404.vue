@@ -1,3 +1,7 @@
+<!--
+404 页面
+-->
+
 <template>
     <div class="page_404 full flx-center">
         <h2>页面不见了</h2>

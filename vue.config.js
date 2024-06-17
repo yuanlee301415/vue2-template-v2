@@ -1,8 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
-const { version } = require('./package.json')
 const path = require('path')
+const { version } = require('./package.json')
 
 process.env.VUE_APP_VERSION = [version, process.env.VUE_APP_BUILD_VERSION].join('.')
 process.env.VUE_APP_BUILD_DATE = new Date().toISOString()
@@ -21,7 +21,9 @@ console.log(
 )
 
 module.exports = defineConfig({
+    // babel-loader 转译 node_modules 中的文件
     transpileDependencies: true,
+
     // 关闭 ESLint 保存编码时的语法检查
     lintOnSave: false,
 
@@ -60,6 +62,7 @@ module.exports = defineConfig({
     chainWebpack: (config) => {
         // 构建进度
         config.plugin('progress').use(new webpack.ProgressPlugin())
+
         if (process.env.NODE_ENV === 'production') {
             // 代码拆分
             config.optimization.splitChunks({
